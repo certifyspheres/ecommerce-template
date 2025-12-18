@@ -8,6 +8,12 @@ A modern, professional ecommerce website template with multiple color themes, li
 
 **Created by [CertifySphere](https://www.certifysphere.com/)** - Premium web development solutions and templates.
 
+## 🌐 Live Demo
+
+**[View Live Demo →](https://ecommerce-theme.certifysphere.com/)**
+
+Experience the full functionality of StyleHub with our interactive demo featuring all pages, themes, and ecommerce features.
+
 ## Features
 
 ### 🎨 Theme Customization
