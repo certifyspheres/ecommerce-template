@@ -698,13 +698,42 @@ class Newsletter {
 // Search Functionality
 class SearchManager {
     constructor() {
+        this.products = this.getProductDatabase();
         this.setupEventListeners();
+    }
+
+    getProductDatabase() {
+        // Mock product database
+        return [
+            { id: 1, name: 'Elegant Summer Dress', category: 'Dresses', price: '$89.99', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=400&fit=crop', url: 'products.html#dress-1' },
+            { id: 2, name: 'Premium Cotton Shirt', category: 'Shirts', price: '$49.99', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=400&fit=crop', url: 'products.html#shirt-1' },
+            { id: 3, name: 'Designer Denim Jeans', category: 'Jeans', price: '$79.99', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=400&fit=crop', url: 'products.html#jeans-1' },
+            { id: 4, name: 'Luxury Leather Jacket', category: 'Jackets', price: '$199.99', image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=400&fit=crop', url: 'products.html#jacket-1' },
+            { id: 5, name: 'Casual Sneakers', category: 'Shoes', price: '$69.99', image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=400&fit=crop', url: 'products.html#shoes-1' },
+            { id: 6, name: 'Silk Blouse', category: 'Blouses', price: '$59.99', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=400&fit=crop', url: 'products.html#blouse-1' },
+            { id: 7, name: 'Wool Sweater', category: 'Sweaters', price: '$89.99', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=400&fit=crop', url: 'products.html#sweater-1' },
+            { id: 8, name: 'Summer Sandals', category: 'Shoes', price: '$39.99', image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&h=400&fit=crop', url: 'products.html#sandals-1' },
+            { id: 9, name: 'Evening Gown', category: 'Dresses', price: '$149.99', image: 'https://images.unsplash.com/photo-1566479179817-c0b5b4b4b1e5?w=300&h=400&fit=crop', url: 'products.html#gown-1' },
+            { id: 10, name: 'Casual T-Shirt', category: 'T-Shirts', price: '$24.99', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=400&fit=crop', url: 'products.html#tshirt-1' },
+            { id: 11, name: 'Formal Blazer', category: 'Blazers', price: '$119.99', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=400&fit=crop', url: 'products.html#blazer-1' },
+            { id: 12, name: 'Athletic Shorts', category: 'Shorts', price: '$34.99', image: 'https://images.unsplash.com/photo-1506629905607-d9b1b2e3d3b1?w=300&h=400&fit=crop', url: 'products.html#shorts-1' }
+        ];
     }
 
     setupEventListeners() {
         const searchBtn = document.querySelector('.search-btn');
-        searchBtn.addEventListener('click', () => {
-            this.showSearchModal();
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => {
+                this.showSearchModal();
+            });
+        }
+
+        // Add keyboard shortcut for search (Ctrl/Cmd + K)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                this.showSearchModal();
+            }
         });
     }
 
@@ -714,11 +743,23 @@ class SearchManager {
         modal.innerHTML = `
             <div class="search-modal-content">
                 <div class="search-header">
-                    <input type="text" placeholder="Search products..." class="search-input" autofocus>
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search products... (Ctrl+K)" class="search-input" autofocus>
+                    </div>
                     <button class="close-search">&times;</button>
                 </div>
                 <div class="search-results">
-                    <p>Start typing to search products...</p>
+                    <div class="search-suggestions">
+                        <h4>Popular Searches</h4>
+                        <div class="suggestion-tags">
+                            <span class="suggestion-tag" data-query="dress">Dresses</span>
+                            <span class="suggestion-tag" data-query="shirt">Shirts</span>
+                            <span class="suggestion-tag" data-query="jeans">Jeans</span>
+                            <span class="suggestion-tag" data-query="shoes">Shoes</span>
+                            <span class="suggestion-tag" data-query="jacket">Jackets</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -736,15 +777,30 @@ class SearchManager {
                 align-items: flex-start;
                 justify-content: center;
                 padding-top: 10vh;
+                backdrop-filter: blur(4px);
             }
             
             .search-modal-content {
-                background: var(--bg-color);
-                border-radius: var(--border-radius);
+                background: var(--card-color);
+                border-radius: var(--border-radius-lg);
                 width: 90%;
                 max-width: 600px;
                 max-height: 70vh;
                 overflow: hidden;
+                box-shadow: var(--shadow-lg);
+                border: 1px solid var(--border-color);
+                animation: searchModalIn 0.3s ease;
+            }
+            
+            @keyframes searchModalIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
             }
             
             .search-header {
@@ -752,15 +808,41 @@ class SearchManager {
                 align-items: center;
                 padding: 1rem;
                 border-bottom: 1px solid var(--border-color);
+                background: var(--bg-color);
+            }
+            
+            .search-input-wrapper {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                background: var(--surface-color);
+                padding: 0.75rem;
+                border-radius: var(--border-radius);
+                border: 1px solid var(--border-color);
+            }
+            
+            .search-input-wrapper:focus-within {
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+            }
+            
+            .search-icon {
+                color: var(--text-secondary);
+                font-size: 1rem;
             }
             
             .search-input {
                 flex: 1;
                 border: none;
                 outline: none;
-                font-size: 1.1rem;
+                font-size: 1rem;
                 background: transparent;
                 color: var(--text-primary);
+            }
+            
+            .search-input::placeholder {
+                color: var(--text-secondary);
             }
             
             .close-search {
@@ -769,14 +851,132 @@ class SearchManager {
                 font-size: 24px;
                 cursor: pointer;
                 color: var(--text-secondary);
-                padding: 0 10px;
+                padding: 0.5rem;
+                margin-left: 0.5rem;
+                border-radius: var(--border-radius);
+                transition: var(--transition);
+            }
+            
+            .close-search:hover {
+                background: var(--surface-color);
+                color: var(--text-primary);
             }
             
             .search-results {
                 padding: 1rem;
                 max-height: 50vh;
                 overflow-y: auto;
+            }
+            
+            .search-suggestions h4 {
+                color: var(--text-primary);
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            
+            .suggestion-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .suggestion-tag {
+                background: var(--surface-color);
                 color: var(--text-secondary);
+                padding: 0.5rem 1rem;
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                font-size: 0.9rem;
+                transition: var(--transition);
+                border: 1px solid var(--border-color);
+            }
+            
+            .suggestion-tag:hover {
+                background: var(--primary-color);
+                color: white;
+                border-color: var(--primary-color);
+            }
+            
+            .search-product-results {
+                display: grid;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .search-product-item {
+                display: flex;
+                gap: 1rem;
+                padding: 1rem;
+                background: var(--surface-color);
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                transition: var(--transition);
+                border: 1px solid var(--border-color);
+            }
+            
+            .search-product-item:hover {
+                background: var(--bg-color);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow);
+            }
+            
+            .search-product-image {
+                width: 60px;
+                height: 60px;
+                border-radius: var(--border-radius);
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+            
+            .search-product-info {
+                flex: 1;
+            }
+            
+            .search-product-name {
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: 0.25rem;
+            }
+            
+            .search-product-category {
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                margin-bottom: 0.25rem;
+            }
+            
+            .search-product-price {
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+            
+            .no-results {
+                text-align: center;
+                padding: 2rem;
+                color: var(--text-secondary);
+            }
+            
+            .no-results i {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                opacity: 0.5;
+            }
+            
+            .loading-results {
+                text-align: center;
+                padding: 2rem;
+                color: var(--text-secondary);
+            }
+            
+            .loading-results i {
+                animation: spin 1s linear infinite;
+            }
+            
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
         `;
 
@@ -786,8 +986,13 @@ class SearchManager {
 
         document.body.appendChild(modal);
 
-        // Close functionality
+        // Setup functionality
         const closeBtn = modal.querySelector('.close-search');
+        const searchInput = modal.querySelector('.search-input');
+        const searchResults = modal.querySelector('.search-results');
+        const suggestionTags = modal.querySelectorAll('.suggestion-tag');
+
+        // Close functionality
         closeBtn.addEventListener('click', () => {
             modal.remove();
             styleSheet.remove();
@@ -800,25 +1005,109 @@ class SearchManager {
             }
         });
 
-        // Search functionality (mock)
-        const searchInput = modal.querySelector('.search-input');
-        const searchResults = modal.querySelector('.search-results');
-        
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            if (query.length > 2) {
-                searchResults.innerHTML = `
-                    <p>Searching for "${query}"...</p>
-                    <div style="margin-top: 1rem;">
-                        <p>• Elegant Summer Dress</p>
-                        <p>• Premium Cotton Shirt</p>
-                        <p>• Designer Denim Jeans</p>
-                    </div>
-                `;
-            } else {
-                searchResults.innerHTML = '<p>Start typing to search products...</p>';
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.parentNode) {
+                modal.remove();
+                styleSheet.remove();
             }
         });
+
+        // Suggestion tag clicks
+        suggestionTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const query = tag.dataset.query;
+                searchInput.value = query;
+                this.performSearch(query, searchResults);
+            });
+        });
+
+        // Search functionality
+        let searchTimeout;
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            clearTimeout(searchTimeout);
+            
+            if (query.length === 0) {
+                this.showSearchSuggestions(searchResults);
+            } else if (query.length >= 2) {
+                searchResults.innerHTML = `
+                    <div class="loading-results">
+                        <i class="fas fa-spinner"></i>
+                        <p>Searching...</p>
+                    </div>
+                `;
+                
+                searchTimeout = setTimeout(() => {
+                    this.performSearch(query, searchResults);
+                }, 300);
+            }
+        });
+
+        // Focus input
+        searchInput.focus();
+    }
+
+    showSearchSuggestions(container) {
+        container.innerHTML = `
+            <div class="search-suggestions">
+                <h4>Popular Searches</h4>
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" data-query="dress">Dresses</span>
+                    <span class="suggestion-tag" data-query="shirt">Shirts</span>
+                    <span class="suggestion-tag" data-query="jeans">Jeans</span>
+                    <span class="suggestion-tag" data-query="shoes">Shoes</span>
+                    <span class="suggestion-tag" data-query="jacket">Jackets</span>
+                </div>
+            </div>
+        `;
+
+        // Re-attach event listeners to new suggestion tags
+        container.querySelectorAll('.suggestion-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const query = tag.dataset.query;
+                const searchInput = document.querySelector('.search-input');
+                searchInput.value = query;
+                this.performSearch(query, container);
+            });
+        });
+    }
+
+    performSearch(query, container) {
+        const results = this.products.filter(product => 
+            product.name.toLowerCase().includes(query) ||
+            product.category.toLowerCase().includes(query)
+        );
+
+        if (results.length === 0) {
+            container.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search"></i>
+                    <h4>No products found</h4>
+                    <p>Try searching for something else or browse our categories</p>
+                </div>
+            `;
+            return;
+        }
+
+        const resultsHTML = results.map(product => `
+            <div class="search-product-item" onclick="window.location.href='${product.url}'">
+                <img src="${product.image}" alt="${product.name}" class="search-product-image">
+                <div class="search-product-info">
+                    <div class="search-product-name">${product.name}</div>
+                    <div class="search-product-category">${product.category}</div>
+                    <div class="search-product-price">${product.price}</div>
+                </div>
+            </div>
+        `).join('');
+
+        container.innerHTML = `
+            <div class="search-product-results">
+                <h4>Found ${results.length} product${results.length !== 1 ? 's' : ''}</h4>
+                ${resultsHTML}
+            </div>
+        `;
     }
 }
 

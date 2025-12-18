@@ -31,6 +31,10 @@
     {
       "source": "/signup",
       "destination": "/signup.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
     }
   ],
   "headers": [
