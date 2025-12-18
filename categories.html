@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - StyleHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-mode-toggle">
+                <button class="mode-btn active" data-mode="light">
+                    <i class="fas fa-sun"></i> Light
+                </button>
+                <button class="mode-btn" data-mode="dark">
+                    <i class="fas fa-moon"></i> Dark
+                </button>
+            </div>
+            <div class="color-themes">
+                <button class="color-theme active" data-theme="blue" style="background: #3b82f6;"></button>
+                <button class="color-theme" data-theme="purple" style="background: #8b5cf6;"></button>
+                <button class="color-theme" data-theme="green" style="background: #10b981;"></button>
+                <button class="color-theme" data-theme="orange" style="background: #f59e0b;"></button>
+                <button class="color-theme" data-theme="pink" style="background: #ec4899;"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">StyleHub</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="categories.html" class="active">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+                <div class="user-menu">
+                    <button class="user-btn"><i class="fas fa-user"></i></button>
+                    <div class="user-dropdown">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                        <a href="#profile">My Profile</a>
+                        <a href="#orders">My Orders</a>
+                        <a href="#wishlist">Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Hero -->
+    <section class="categories-hero">
+        <div class="container">
+            <div class="categories-hero-content">
+                <h1>Shop by Category</h1>
+                <p>Explore our carefully curated collections designed for every style and occasion</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Categories -->
+    <section class="main-categories">
+        <div class="container">
+            <div class="categories-grid-large">
+                <div class="category-card-large" data-category="women">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1000&fit=crop" alt="Women's Fashion">
+                        <div class="category-overlay-large">
+                            <div class="category-content-large">
+                                <h2>Women's Fashion</h2>
+                                <p>Elegant dresses, chic tops, stylish bottoms, and more</p>
+                                <div class="category-stats">
+                                    <span>250+ Products</span>
+                                    <span>•</span>
+                                    <span>New Arrivals Weekly</span>
+                                </div>
+                                <button class="explore-btn">
+                                    Explore Collection
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card-large" data-category="men">
+                    <div class="category-image-large">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" alt="Men's Fashion">
+                        <div class="category-overlay-large">
+                            <div class="category-content-large">
+                                <h2>Men's Fashion</h2>
+                                <p>Classic suits, casual wear, premium accessories</p>
+                                <div class="category-stats">
+                                    <span>180+ Products</span>
+                                    <span>•</span>
+                                    <span>Premium Quality</span>
+                                </div>
+                                <button class="explore-btn">
+                                    Explore Collection
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sub Categories -->
+    <section class="sub-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-modern">Shop by Style</h2>
+                <p class="section-subtitle">Find exactly what you're looking for</p>
+            </div>
+
+            <div class="sub-categories-grid">
+                <div class="sub-category-card">
+                    <div class="sub-category-image">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=300&fit=crop" alt="Dresses">
+                    </div>
+                    <div class="sub-category-info">
+                        <h3>Dresses</h3>
+                        <p>45 Products</p>
+                        <button class="sub-category-btn">Shop Now</button>
+                    </div>
+                </div>
+
+                <div class="sub-category-card">
+                    <div class="sub-category-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop" alt="Shirts">
+                    </div>
+                    <div class="sub-category-info">
+                        <h3>Shirts & Tops</h3>
+                        <p>67 Products</p>
+                        <button class="sub-category-btn">Shop Now</button>
+                    </div>
+                </div>
+
+                <div class="sub-category-card">
+                    <div class="sub-category-image">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop" alt="Jeans">
+                    </div>
+                    <div class="sub-category-info">
+                        <h3>Jeans & Pants</h3>
+                        <p>52 Products</p>
+                        <button class="sub-category-btn">Shop Now</button>
+                    </div>
+                </div>
+
+                <div class="sub-category-card">
+                    <div class="sub-category-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" alt="Shoes">
+                    </div>
+                    <div class="sub-category-info">
+                        <h3>Footwear</h3>
+                        <p>38 Products</p>
+                        <button class="sub-category-btn">Shop Now</button>
+                    </div>
+                </div>
+
+                <div class="sub-category-card">
+                    <div class="sub-category-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop" alt="Bags">
+                    </div>
+                    <div class="sub-category-info">
+                        <h3>Bags & Purses</h3>
+                        <p>29 Products</p>
+                        <button class="sub-category-btn">Shop Now</button>
+                    </div>
+                </div>
+
+                <div class="sub-category-card">
+                    <div class="sub-category-image">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop" alt="Accessories">
+                    </div>
+                    <div class="sub-category-info">
+                        <h3>Accessories</h3>
+                        <p>41 Products</p>
+                        <button class="sub-category-btn">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Collections -->
+    <section class="seasonal-collections">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-modern">Seasonal Collections</h2>
+                <p class="section-subtitle">Curated collections for every season</p>
+            </div>
+
+            <div class="seasonal-grid">
+                <div class="seasonal-card">
+                    <div class="seasonal-image">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=400&fit=crop" alt="Spring Collection">
+                        <div class="seasonal-overlay">
+                            <div class="seasonal-content">
+                                <span class="seasonal-badge">New</span>
+                                <h3>Spring Collection 2024</h3>
+                                <p>Fresh styles for the new season</p>
+                                <button class="seasonal-btn">Explore</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seasonal-card">
+                    <div class="seasonal-image">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=400&fit=crop" alt="Summer Collection">
+                        <div class="seasonal-overlay">
+                            <div class="seasonal-content">
+                                <span class="seasonal-badge">Hot</span>
+                                <h3>Summer Essentials</h3>
+                                <p>Beat the heat in style</p>
+                                <button class="seasonal-btn">Explore</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seasonal-card">
+                    <div class="seasonal-image">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&h=400&fit=crop" alt="Fall Collection">
+                        <div class="seasonal-overlay">
+                            <div class="seasonal-content">
+                                <span class="seasonal-badge">Trending</span>
+                                <h3>Fall Fashion</h3>
+                                <p>Cozy and chic autumn looks</p>
+                                <button class="seasonal-btn">Explore</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Features -->
+    <section class="category-features">
+        <div class="container">
+            <div class="features-grid-categories">
+                <div class="feature-item">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing on all categories with regular sales and discounts</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>Premium materials and craftsmanship in every product we offer</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Easy Exchanges</h3>
+                    <p>Hassle-free returns and exchanges within 30 days of purchase</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick shipping options available for all product categories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StyleHub</h3>
+                    <p>Your premium destination for fashion and lifestyle products.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@stylehub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion St, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 StyleHub. All rights reserved.</p>
+<p class="attribution">Created by <a href="https://www.certifysphere.com/" target="_blank" rel="noopener">CertifySphere</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

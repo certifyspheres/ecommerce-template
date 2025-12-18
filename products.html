@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - StyleHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-mode-toggle">
+                <button class="mode-btn active" data-mode="light">
+                    <i class="fas fa-sun"></i> Light
+                </button>
+                <button class="mode-btn" data-mode="dark">
+                    <i class="fas fa-moon"></i> Dark
+                </button>
+            </div>
+            <div class="color-themes">
+                <button class="color-theme active" data-theme="blue" style="background: #3b82f6;"></button>
+                <button class="color-theme" data-theme="purple" style="background: #8b5cf6;"></button>
+                <button class="color-theme" data-theme="green" style="background: #10b981;"></button>
+                <button class="color-theme" data-theme="orange" style="background: #f59e0b;"></button>
+                <button class="color-theme" data-theme="pink" style="background: #ec4899;"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">StyleHub</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+                <div class="user-menu">
+                    <button class="user-btn"><i class="fas fa-user"></i></button>
+                    <div class="user-dropdown">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                        <a href="#profile">My Profile</a>
+                        <a href="#orders">My Orders</a>
+                        <a href="#wishlist">Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Products</span>
+        </div>
+    </div>
+
+    <!-- Products Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>All Products</h1>
+                <p>Discover our complete collection of premium fashion items</p>
+            </div>
+            <div class="page-header-stats">
+                <span>Showing 1-24 of 156 products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Products -->
+    <section class="products-page">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3>Categories</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="women">
+                                <span class="checkmark"></span>
+                                Women's Fashion (89)
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="men">
+                                <span class="checkmark"></span>
+                                Men's Fashion (67)
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="accessories">
+                                <span class="checkmark"></span>
+                                Accessories (45)
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="footwear">
+                                <span class="checkmark"></span>
+                                Footwear (32)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <div class="price-range">
+                            <div class="price-inputs">
+                                <input type="number" placeholder="Min" min="0" max="1000">
+                                <span>-</span>
+                                <input type="number" placeholder="Max" min="0" max="1000">
+                            </div>
+                            <div class="price-slider">
+                                <div class="slider-track"></div>
+                                <div class="slider-range"></div>
+                                <input type="range" min="0" max="1000" value="0" class="slider-min">
+                                <input type="range" min="0" max="1000" value="1000" class="slider-max">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Size</h3>
+                        <div class="size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn">XXL</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Color</h3>
+                        <div class="color-options">
+                            <button class="color-btn" style="background: #000;" title="Black"></button>
+                            <button class="color-btn" style="background: #fff; border: 1px solid #ddd;" title="White"></button>
+                            <button class="color-btn" style="background: #ef4444;" title="Red"></button>
+                            <button class="color-btn" style="background: #3b82f6;" title="Blue"></button>
+                            <button class="color-btn" style="background: #10b981;" title="Green"></button>
+                            <button class="color-btn" style="background: #f59e0b;" title="Yellow"></button>
+                            <button class="color-btn" style="background: #8b5cf6;" title="Purple"></button>
+                            <button class="color-btn" style="background: #ec4899;" title="Pink"></button>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Brand</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="brand" value="stylehub">
+                                <span class="checkmark"></span>
+                                StyleHub (45)
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="brand" value="premium">
+                                <span class="checkmark"></span>
+                                Premium (32)
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="brand" value="luxury">
+                                <span class="checkmark"></span>
+                                Luxury (28)
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="brand" value="classic">
+                                <span class="checkmark"></span>
+                                Classic (21)
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="clear-filters-btn">Clear All Filters</button>
+                </aside>
+
+                <!-- Products Grid -->
+                <main class="products-main">
+                    <div class="products-toolbar">
+                        <div class="view-options">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                        <div class="sort-options">
+                            <select class="sort-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                        <button class="filters-toggle mobile-only">
+                            <i class="fas fa-filter"></i>
+                            Filters
+                        </button>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Product cards will be dynamically generated -->
+                        <div class="product-card">
+                            <div class="product-badge">New</div>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=500&fit=crop" alt="Elegant Dress">
+                                <div class="product-overlay">
+                                    <button class="quick-view">Quick View</button>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Elegant Summer Dress</h3>
+                                <p class="product-price">$89.99</p>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(24 reviews)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="share-btn" title="Share"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More product cards... -->
+                        <div class="product-card">
+                            <div class="product-badge sale">Sale</div>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" alt="Cotton Shirt">
+                                <div class="product-overlay">
+                                    <button class="quick-view">Quick View</button>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Premium Cotton Shirt</h3>
+                                <p class="product-price">$59.99 <span class="original-price">$79.99</span></p>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(18 reviews)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="share-btn" title="Share"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more product cards as needed -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span class="page-dots">...</span>
+                        <button class="page-btn">7</button>
+                        <button class="page-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StyleHub</h3>
+                    <p>Your premium destination for fashion and lifestyle products.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@stylehub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion St, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 StyleHub. All rights reserved.</p>
+                <p class="attribution">Created by <a href="https://www.certifysphere.com/" target="_blank" rel="noopener">CertifySphere</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

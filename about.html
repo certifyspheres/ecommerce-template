@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - StyleHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-mode-toggle">
+                <button class="mode-btn active" data-mode="light">
+                    <i class="fas fa-sun"></i> Light
+                </button>
+                <button class="mode-btn" data-mode="dark">
+                    <i class="fas fa-moon"></i> Dark
+                </button>
+            </div>
+            <div class="color-themes">
+                <button class="color-theme active" data-theme="blue" style="background: #3b82f6;"></button>
+                <button class="color-theme" data-theme="purple" style="background: #8b5cf6;"></button>
+                <button class="color-theme" data-theme="green" style="background: #10b981;"></button>
+                <button class="color-theme" data-theme="orange" style="background: #f59e0b;"></button>
+                <button class="color-theme" data-theme="pink" style="background: #ec4899;"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">StyleHub</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+                <div class="user-menu">
+                    <button class="user-btn"><i class="fas fa-user"></i></button>
+                    <div class="user-dropdown">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                        <a href="#profile">My Profile</a>
+                        <a href="#orders">My Orders</a>
+                        <a href="#wishlist">Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <div class="about-text">
+                    <span class="about-badge">Since 2020</span>
+                    <h1>Redefining Fashion Excellence</h1>
+                    <p>At StyleHub, we believe fashion is more than just clothing—it's a form of self-expression, confidence, and creativity. Our mission is to provide premium, sustainable fashion that empowers individuals to showcase their unique style.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>50K+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>Premium Products</p>
+                        </div>
+                        <div class="stat">
+                            <h3>25+</h3>
+                            <p>Fashion Brands</p>
+                        </div>
+                        <div class="stat">
+                            <h3>4.9</h3>
+                            <p>Customer Rating</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=700&fit=crop" alt="StyleHub Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2020 by fashion enthusiasts Sarah Johnson and Michael Chen, StyleHub began as a small boutique with a big vision: to make premium fashion accessible to everyone while maintaining the highest standards of quality and sustainability.</p>
+                    <p>What started as a passion project has grown into a trusted fashion destination, serving customers worldwide with carefully curated collections from emerging and established designers.</p>
+                    <p>Today, we continue to push boundaries in fashion retail, embracing technology and innovation while staying true to our core values of quality, sustainability, and exceptional customer service.</p>
+                </div>
+                <div class="story-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4>The Beginning</h4>
+                            <p>StyleHub was founded with a vision to revolutionize online fashion retail</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h4>First Milestone</h4>
+                            <p>Reached 10,000 satisfied customers and expanded our product range</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4>Global Expansion</h4>
+                            <p>Launched international shipping and partnered with premium brands</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h4>Sustainability Focus</h4>
+                            <p>Introduced eco-friendly packaging and sustainable fashion lines</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4>Innovation Leader</h4>
+                            <p>Launched AI-powered style recommendations and virtual try-on</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="our-values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-modern">Our Values</h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>We're committed to reducing our environmental impact through sustainable practices, eco-friendly packaging, and partnerships with responsible manufacturers.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>Every product in our collection is carefully selected and tested to ensure it meets our high standards for materials, craftsmanship, and durability.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Inclusivity</h3>
+                    <p>Fashion is for everyone. We celebrate diversity and strive to offer styles that make every customer feel confident and beautiful.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace new technologies and creative approaches to enhance the shopping experience and stay ahead of fashion trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title-modern">Meet Our Team</h2>
+                <p class="section-subtitle">The passionate people behind StyleHub</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Johnson</h3>
+                        <p class="member-role">Co-Founder & CEO</p>
+                        <p class="member-bio">Fashion industry veteran with 15+ years of experience in retail and brand management.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Michael Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <p class="member-role">Co-Founder & CTO</p>
+                        <p class="member-bio">Technology expert passionate about creating seamless digital experiences for fashion lovers.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" alt="Emma Davis">
+                    </div>
+                    <div class="member-info">
+                        <h3>Emma Davis</h3>
+                        <p class="member-role">Head of Design</p>
+                        <p class="member-bio">Creative director with a keen eye for emerging trends and sustainable fashion practices.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="David Wilson">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Wilson</h3>
+                        <p class="member-role">Head of Operations</p>
+                        <p class="member-bio">Operations specialist ensuring smooth logistics and exceptional customer service delivery.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability-section">
+        <div class="container">
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <span class="section-badge">Our Commitment</span>
+                    <h2>Sustainable Fashion Future</h2>
+                    <p>We believe in fashion that doesn't compromise our planet's future. Our sustainability initiatives include:</p>
+                    <ul class="sustainability-list">
+                        <li><i class="fas fa-check"></i> Carbon-neutral shipping options</li>
+                        <li><i class="fas fa-check"></i> Eco-friendly packaging materials</li>
+                        <li><i class="fas fa-check"></i> Partnership with sustainable brands</li>
+                        <li><i class="fas fa-check"></i> Clothing recycling program</li>
+                        <li><i class="fas fa-check"></i> Ethical manufacturing standards</li>
+                    </ul>
+                    <button class="learn-more-btn">Learn More About Our Impact</button>
+                </div>
+                <div class="sustainability-image">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=500&fit=crop" alt="Sustainable Fashion">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Discover Your Style?</h2>
+                <p>Join thousands of fashion enthusiasts who trust StyleHub for their wardrobe needs</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn primary" onclick="window.location.href='products.html'">
+                        Shop Now
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="cta-btn secondary" onclick="window.location.href='contact.html'">
+                        Get in Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>StyleHub</h3>
+                    <p>Your premium destination for fashion and lifestyle products.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@stylehub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion St, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 StyleHub. All rights reserved.</p>
+                <p class="attribution">Created by <a href="https://www.certifysphere.com/" target="_blank" rel="noopener">CertifySphere</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

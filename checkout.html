@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - StyleHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-mode-toggle">
+                <button class="mode-btn active" data-mode="light">
+                    <i class="fas fa-sun"></i> Light
+                </button>
+                <button class="mode-btn" data-mode="dark">
+                    <i class="fas fa-moon"></i> Dark
+                </button>
+            </div>
+            <div class="color-themes">
+                <button class="color-theme active" data-theme="blue" style="background: #3b82f6;"></button>
+                <button class="color-theme" data-theme="purple" style="background: #8b5cf6;"></button>
+                <button class="color-theme" data-theme="green" style="background: #10b981;"></button>
+                <button class="color-theme" data-theme="orange" style="background: #f59e0b;"></button>
+                <button class="color-theme" data-theme="pink" style="background: #ec4899;"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">StyleHub</a></h1>
+            </div>
+            <div class="checkout-progress">
+                <div class="progress-step active">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Shipping</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Payment</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Review</span>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="cart.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Cart
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-content">
+                <div class="checkout-form">
+                    <!-- Shipping Information -->
+                    <div class="checkout-step active" id="shipping-step">
+                        <div class="step-header">
+                            <h2>Shipping Information</h2>
+                            <p>Please provide your shipping details</p>
+                        </div>
+
+                        <form class="shipping-form">
+                            <div class="form-section">
+                                <h3>Contact Information</h3>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Shipping Address</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Street Address</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="apartment">Apartment, suite, etc. (optional)</label>
+                                    <input type="text" id="apartment" name="apartment">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" id="city" name="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <select id="state" name="state" required>
+                                            <option value="">Select State</option>
+                                            <option value="CA">California</option>
+                                            <option value="NY">New York</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="FL">Florida</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="zipCode">ZIP Code</label>
+                                        <input type="text" id="zipCode" name="zipCode" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Shipping Method</h3>
+                                <div class="shipping-options">
+                                    <label class="shipping-option">
+                                        <input type="radio" name="shipping" value="standard" checked>
+                                        <div class="option-content">
+                                            <div class="option-info">
+                                                <h4>Standard Shipping</h4>
+                                                <p>5-7 business days</p>
+                                            </div>
+                                            <span class="option-price">Free</span>
+                                        </div>
+                                    </label>
+                                    <label class="shipping-option">
+                                        <input type="radio" name="shipping" value="express">
+                                        <div class="option-content">
+                                            <div class="option-info">
+                                                <h4>Express Shipping</h4>
+                                                <p>2-3 business days</p>
+                                            </div>
+                                            <span class="option-price">$9.99</span>
+                                        </div>
+                                    </label>
+                                    <label class="shipping-option">
+                                        <input type="radio" name="shipping" value="overnight">
+                                        <div class="option-content">
+                                            <div class="option-info">
+                                                <h4>Overnight Shipping</h4>
+                                                <p>Next business day</p>
+                                            </div>
+                                            <span class="option-price">$24.99</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="next-step-btn" onclick="nextStep()">
+                                    Continue to Payment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="checkout-step" id="payment-step">
+                        <div class="step-header">
+                            <h2>Payment Information</h2>
+                            <p>Choose your payment method</p>
+                        </div>
+
+                        <div class="payment-methods">
+                            <label class="payment-method active">
+                                <input type="radio" name="payment" value="card" checked>
+                                <div class="method-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit/Debit Card</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="paypal">
+                                <div class="method-content">
+                                    <i class="fab fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="apple">
+                                <div class="method-content">
+                                    <i class="fab fa-apple-pay"></i>
+                                    <span>Apple Pay</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="google">
+                                <div class="method-content">
+                                    <i class="fab fa-google-pay"></i>
+                                    <span>Google Pay</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <form class="payment-form" id="card-form">
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" name="cardName" required>
+                            </div>
+                        </form>
+
+                        <div class="step-actions">
+                            <button type="button" class="prev-step-btn" onclick="prevStep()">
+                                Back to Shipping
+                            </button>
+                            <button type="button" class="next-step-btn" onclick="nextStep()">
+                                Review Order
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Order Review -->
+                    <div class="checkout-step" id="review-step">
+                        <div class="step-header">
+                            <h2>Review Your Order</h2>
+                            <p>Please review your order before placing it</p>
+                        </div>
+
+                        <div class="order-review">
+                            <div class="review-section">
+                                <h3>Shipping Address</h3>
+                                <div class="review-content">
+                                    <p><strong>John Doe</strong></p>
+                                    <p>123 Fashion Street</p>
+                                    <p>New York, NY 10001</p>
+                                    <p>Phone: (555) 123-4567</p>
+                                </div>
+                                <button class="edit-btn" onclick="goToStep(1)">Edit</button>
+                            </div>
+
+                            <div class="review-section">
+                                <h3>Payment Method</h3>
+                                <div class="review-content">
+                                    <p><strong>Credit Card</strong></p>
+                                    <p>**** **** **** 3456</p>
+                                    <p>Expires 12/25</p>
+                                </div>
+                                <button class="edit-btn" onclick="goToStep(2)">Edit</button>
+                            </div>
+
+                            <div class="review-section">
+                                <h3>Shipping Method</h3>
+                                <div class="review-content">
+                                    <p><strong>Standard Shipping</strong></p>
+                                    <p>5-7 business days - Free</p>
+                                </div>
+                                <button class="edit-btn" onclick="goToStep(1)">Edit</button>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="prev-step-btn" onclick="prevStep()">
+                                Back to Payment
+                            </button>
+                            <button type="button" class="place-order-btn" onclick="placeOrder()">
+                                <i class="fas fa-lock"></i>
+                                Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary-sidebar">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=60&h=80&fit=crop" alt="Elegant Dress">
+                                <div class="item-info">
+                                    <h4>Elegant Summer Dress</h4>
+                                    <p>Size: M, Color: Blue</p>
+                                    <span class="item-qty">Qty: 1</span>
+                                </div>
+                                <span class="item-price">$89.99</span>
+                            </div>
+                            
+                            <div class="order-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=60&h=80&fit=crop" alt="Cotton Shirt">
+                                <div class="item-info">
+                                    <h4>Premium Cotton Shirt</h4>
+                                    <p>Size: L, Color: White</p>
+                                    <span class="item-qty">Qty: 2</span>
+                                </div>
+                                <span class="item-price">$119.98</span>
+                            </div>
+                            
+                            <div class="order-item">
+                                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=60&h=80&fit=crop" alt="Sneakers">
+                                <div class="item-info">
+                                    <h4>Sport Sneakers</h4>
+                                    <p>Size: 9, Color: Black</p>
+                                    <span class="item-qty">Qty: 1</span>
+                                </div>
+                                <span class="item-price">$99.99</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-calculations">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span>$309.96</span>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span class="free">Free</span>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span>$24.80</span>
+                            </div>
+                            
+                            <div class="summary-row discount">
+                                <span>Discount (SAVE20)</span>
+                                <span>-$61.99</span>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span>$272.77</span>
+                            </div>
+                        </div>
+
+                        <div class="security-badges">
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-lock"></i>
+                                <span>256-bit Encryption</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
