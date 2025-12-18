@@ -293,6 +293,21 @@ We welcome contributions! Please see our [Contributing Guidelines](./docs/contri
 - E-commerce Solutions
 - Digital Product Development
 
+## ☕ Support Our Work
+
+Love this template? Help us create more amazing open-source projects!
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/certifysphere)
+
+Your support helps us:
+- 🚀 Develop new features and templates
+- 🐛 Fix bugs and improve performance  
+- 📚 Create better documentation
+- 🎨 Design more beautiful themes
+- 🆓 Keep our projects free and open-source
+
+**[☕ Buy us a coffee](https://www.buymeacoffee.com/certifysphere)** - Every contribution makes a difference!
+
 ## 📜 Credits
 
 - **Template Design & Development**: [CertifySphere](https://www.certifysphere.com/)

@@ -4997,3 +4997,67 @@ body {
         font-size: 1.5rem;
     }
 }
+/* Donation Button Styling */
+.donation-button {
+    margin-top: 1rem;
+}
+
+.footer-section .donation-button {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Style the Buy Me a Coffee button container */
+.donation-button iframe {
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow) !important;
+    transition: var(--transition) !important;
+}
+
+.donation-button iframe:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* Floating donation button for better visibility */
+.floating-donation {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating-donation iframe {
+    border-radius: 25px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Hide floating button on mobile to avoid interference */
+@media (max-width: 768px) {
+    .floating-donation {
+        display: none;
+    }
+}
+
+/* Donation section in footer responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-section .donation-button {
+        justify-content: center;
+    }
+}
