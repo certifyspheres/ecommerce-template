@@ -1,60 +1,36 @@
 {
   "version": 2,
   "name": "stylehub-ecommerce-template",
-  "builds": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "**/*.html",
-      "use": "@vercel/static"
+      "source": "/products",
+      "destination": "/products.html"
     },
     {
-      "src": "**/*.css",
-      "use": "@vercel/static"
+      "source": "/categories",
+      "destination": "/categories.html"
     },
     {
-      "src": "**/*.js",
-      "use": "@vercel/static"
+      "source": "/about",
+      "destination": "/about.html"
     },
     {
-      "src": "**/*.md",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/cart",
+      "destination": "/cart.html"
     },
     {
-      "src": "/products",
-      "dest": "/products.html"
+      "source": "/checkout",
+      "destination": "/checkout.html"
     },
     {
-      "src": "/categories",
-      "dest": "/categories.html"
+      "source": "/login",
+      "destination": "/login.html"
     },
     {
-      "src": "/about",
-      "dest": "/about.html"
-    },
-    {
-      "src": "/cart",
-      "dest": "/cart.html"
-    },
-    {
-      "src": "/checkout",
-      "dest": "/checkout.html"
-    },
-    {
-      "src": "/login",
-      "dest": "/login.html"
-    },
-    {
-      "src": "/signup",
-      "dest": "/signup.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/signup",
+      "destination": "/signup.html"
     }
   ],
   "headers": [
@@ -88,7 +64,5 @@
         }
       ]
     }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  ]
 }

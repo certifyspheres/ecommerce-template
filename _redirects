@@ -1,4 +1,4 @@
-# Netlify-style redirects (also works with Vercel)
+# Clean URL redirects for Netlify compatibility
 /products   /products.html   200
 /categories /categories.html 200
 /about      /about.html      200
@@ -6,6 +6,3 @@
 /checkout   /checkout.html   200
 /login      /login.html      200
 /signup     /signup.html     200
-
-# Fallback for SPA-like behavior
-/*          /index.html      404
