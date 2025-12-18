@@ -7,13 +7,13 @@
     <meta name="description" content="StyleHub - Modern, responsive ecommerce website template with shopping cart, checkout, authentication, and 5 color themes. Created by CertifySphere.">
     <meta name="keywords" content="ecommerce template, shopping cart, responsive design, html css javascript, modern website template, certifysphere">
     <meta name="author" content="CertifySphere">
-    <link rel="canonical" href="https://ecommerce-theme.certifysphere.com/">
+    <link rel="canonical" href="https://stylehub-theme.certifysphere.com/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="StyleHub - Premium Fashion Store | Modern Ecommerce Template">
     <meta property="og:description" content="Modern, responsive ecommerce website template with shopping cart, checkout, authentication, and 5 color themes. Created by CertifySphere.">
-    <meta property="og:image" content="https://ecommerce-theme.certifysphere.com/og-image.jpg">
-    <meta property="og:url" content="https://ecommerce-theme.certifysphere.com/">
+    <meta property="og:image" content="https://stylehub-theme.certifysphere.com/og-image.jpg">
+    <meta property="og:url" content="https://stylehub-theme.certifysphere.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="StyleHub Ecommerce Template">
     
@@ -21,7 +21,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="StyleHub - Premium Fashion Store | Modern Ecommerce Template">
     <meta name="twitter:description" content="Modern, responsive ecommerce website template with shopping cart, checkout, authentication, and 5 color themes.">
-    <meta name="twitter:image" content="https://ecommerce-theme.certifysphere.com/twitter-image.jpg">
+    <meta name="twitter:image" content="https://stylehub-theme.certifysphere.com/twitter-image.jpg">
     <meta name="twitter:site" content="@certifysphere">
     
     <!-- Favicon -->
@@ -134,6 +134,36 @@
         <div class="hero-scroll-indicator">
             <span>Scroll Down</span>
             <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h3>🔥 Flash Sale - Up to 70% Off!</h3>
+                    <p>Limited time offer on selected items. Don't miss out!</p>
+                </div>
+                <div class="promo-timer">
+                    <div class="timer-item">
+                        <span class="timer-number" id="hours">23</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="minutes">45</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="seconds">30</span>
+                        <span class="timer-label">Seconds</span>
+                    </div>
+                </div>
+                <button class="promo-btn" onclick="window.location.href='products.html?sale=true'">
+                    Shop Sale Now
+                    <i class="fas fa-bolt"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -320,6 +350,68 @@
                 </div>
                 <div class="brand-item">
                     <img src="https://via.placeholder.com/150x80/f8fafc/64748b?text=ELITE" alt="Brand 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal of the Day -->
+    <section class="deal-of-day">
+        <div class="container">
+            <div class="deal-content">
+                <div class="deal-info">
+                    <span class="deal-badge">Deal of the Day</span>
+                    <h2>Limited Time Offer</h2>
+                    <p>Get this premium leather jacket at an unbeatable price. Only today!</p>
+                    <div class="deal-price">
+                        <span class="current-price">$149.99</span>
+                        <span class="original-price">$299.99</span>
+                        <span class="discount">50% OFF</span>
+                    </div>
+                    <div class="deal-timer">
+                        <div class="timer-box">
+                            <span class="timer-num" id="deal-hours">12</span>
+                            <span class="timer-text">Hours</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-num" id="deal-minutes">34</span>
+                            <span class="timer-text">Minutes</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-num" id="deal-seconds">56</span>
+                            <span class="timer-text">Seconds</span>
+                        </div>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="deal-btn primary">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                        <button class="deal-btn secondary">
+                            <i class="fas fa-heart"></i>
+                            Add to Wishlist
+                        </button>
+                    </div>
+                    <div class="deal-features">
+                        <div class="feature-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Free Express Shipping</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-check"></i>
+                            <span>2 Year Warranty</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-medal"></i>
+                            <span>Premium Quality</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=600&fit=crop" alt="Premium Leather Jacket">
+                    <div class="deal-overlay">
+                        <span class="stock-indicator">Only 5 left in stock!</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -568,40 +660,101 @@
         </div>
     </section>
 
+    <!-- Shopping Guarantee -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-header">
+                    <h2>Shop with Confidence</h2>
+                    <p>Your satisfaction is our top priority</p>
+                </div>
+                <div class="guarantee-grid">
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Quality Guarantee</h3>
+                        <p>Premium materials and craftsmanship in every product</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Easy Returns</h3>
+                        <p>30-day hassle-free returns and exchanges</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Secure Shopping</h3>
+                        <p>SSL encrypted checkout and secure payment processing</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-headphones-alt"></i>
+                        </div>
+                        <h3>Expert Support</h3>
+                        <p>Dedicated customer service team ready to help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Newsletter Modern -->
     <section class="newsletter-modern">
         <div class="container">
             <div class="newsletter-content-modern">
                 <div class="newsletter-text">
-                    <span class="newsletter-badge">Stay in the Loop</span>
-                    <h2>Get Exclusive Offers</h2>
-                    <p>Subscribe to our newsletter and be the first to know about new collections, special offers, and fashion tips.</p>
+                    <span class="newsletter-badge">💌 Join 50K+ Subscribers</span>
+                    <h2>Get Exclusive Offers & Style Updates</h2>
+                    <p>Subscribe to our newsletter and be the first to know about new collections, flash sales, and fashion tips from our style experts.</p>
                     <div class="newsletter-benefits">
                         <div class="benefit-item">
-                            <i class="fas fa-check"></i>
-                            <span>Exclusive discounts</span>
+                            <i class="fas fa-percent"></i>
+                            <span>20% off your first order</span>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-check"></i>
-                            <span>Early access to sales</span>
+                            <i class="fas fa-bolt"></i>
+                            <span>Early access to flash sales</span>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-check"></i>
-                            <span>Style tips & trends</span>
+                            <i class="fas fa-crown"></i>
+                            <span>VIP member exclusive deals</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Personal style recommendations</span>
                         </div>
                     </div>
                 </div>
                 <div class="newsletter-form-modern">
                     <form class="newsletter-form">
                         <div class="form-group-modern">
-                            <input type="email" placeholder="Enter your email address" required>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" placeholder="Enter your email address" required>
+                            </div>
                             <button type="submit">
-                                Subscribe Now
-                                <i class="fas fa-arrow-right"></i>
+                                Get 20% Off
+                                <i class="fas fa-gift"></i>
                             </button>
                         </div>
-                        <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
+                        <p class="newsletter-privacy">
+                            <i class="fas fa-shield-alt"></i>
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
                     </form>
+                    <div class="newsletter-social">
+                        <span>Follow us:</span>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

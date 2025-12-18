@@ -1149,3 +1149,322 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// Countdown Timer Functionality
+class CountdownTimer {
+    constructor() {
+        this.initTimers();
+    }
+
+    initTimers() {
+        // Promo banner timer
+        this.startTimer('hours', 'minutes', 'seconds', 24 * 60 * 60); // 24 hours
+        
+        // Deal of the day timer
+        this.startTimer('deal-hours', 'deal-minutes', 'deal-seconds', 12 * 60 * 60 + 34 * 60 + 56); // 12:34:56
+    }
+
+    startTimer(hoursId, minutesId, secondsId, totalSeconds) {
+        const updateTimer = () => {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            const hoursElement = document.getElementById(hoursId);
+            const minutesElement = document.getElementById(minutesId);
+            const secondsElement = document.getElementById(secondsId);
+
+            if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+            if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+            if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                setTimeout(updateTimer, 1000);
+            } else {
+                // Timer expired - could trigger some action here
+                if (hoursElement) hoursElement.textContent = '00';
+                if (minutesElement) minutesElement.textContent = '00';
+                if (secondsElement) secondsElement.textContent = '00';
+            }
+        };
+
+        updateTimer();
+    }
+}
+
+// Enhanced Product Filtering
+class ProductFilter {
+    constructor() {
+        this.setupFilters();
+    }
+
+    setupFilters() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+                
+                productCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease';
+                    } else {
+                        const badge = card.querySelector('.product-badge');
+                        if (badge && badge.textContent.toLowerCase().includes(filter)) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeInUp 0.5s ease';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    }
+}
+
+// Enhanced Newsletter with Better UX
+class EnhancedNewsletter {
+    constructor() {
+        this.setupNewsletter();
+    }
+
+    setupNewsletter() {
+        const forms = document.querySelectorAll('.newsletter-form');
+        
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleSubscription(form);
+            });
+        });
+    }
+
+    async handleSubscription(form) {
+        const email = form.querySelector('input[type="email"]').value;
+        const button = form.querySelector('button');
+        const originalText = button.innerHTML;
+        
+        // Show loading state
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+        button.disabled = true;
+
+        try {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Show success state
+            button.innerHTML = '<i class="fas fa-check"></i> Welcome Aboard!';
+            button.style.background = '#10b981';
+            
+            // Show success message
+            this.showNotification('🎉 Welcome! Check your email for your 20% discount code.', 'success');
+            
+            // Reset form
+            form.querySelector('input[type="email"]').value = '';
+            
+            // Reset button after delay
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                button.style.background = '';
+            }, 3000);
+            
+        } catch (error) {
+            // Show error state
+            button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Try Again';
+            button.style.background = '#ef4444';
+            
+            this.showNotification('Something went wrong. Please try again.', 'error');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                button.style.background = '';
+            }, 3000);
+        }
+    }
+
+    showNotification(message, type) {
+        // Remove existing notifications
+        document.querySelectorAll('.newsletter-notification').forEach(n => n.remove());
+
+        const notification = document.createElement('div');
+        notification.className = `newsletter-notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            </div>
+        `;
+
+        const styles = `
+            .newsletter-notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 2000;
+                max-width: 400px;
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow-lg);
+                animation: slideInRight 0.3s ease;
+            }
+            
+            .newsletter-notification.success {
+                background: #10b981;
+                color: white;
+            }
+            
+            .newsletter-notification.error {
+                background: #ef4444;
+                color: white;
+            }
+            
+            .notification-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 1.5rem;
+                gap: 1rem;
+            }
+            
+            .close-notification {
+                background: none;
+                border: none;
+                color: inherit;
+                font-size: 1.2rem;
+                cursor: pointer;
+                padding: 0;
+                opacity: 0.8;
+            }
+            
+            .close-notification:hover {
+                opacity: 1;
+            }
+        `;
+
+        if (!document.querySelector('#newsletter-notification-styles')) {
+            const styleSheet = document.createElement('style');
+            styleSheet.id = 'newsletter-notification-styles';
+            styleSheet.textContent = styles;
+            document.head.appendChild(styleSheet);
+        }
+
+        document.body.appendChild(notification);
+
+        // Close functionality
+        const closeBtn = notification.querySelector('.close-notification');
+        closeBtn.addEventListener('click', () => {
+            notification.remove();
+        });
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+}
+
+// Smooth Scroll for Shop Now buttons
+class SmoothScrollEnhanced {
+    constructor() {
+        this.setupScrollButtons();
+    }
+
+    setupScrollButtons() {
+        // Shop now buttons in trending section
+        document.querySelectorAll('.shop-now-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productsSection = document.getElementById('products');
+                if (productsSection) {
+                    productsSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hero scroll indicator
+        const scrollIndicator = document.querySelector('.hero-scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', () => {
+                const nextSection = document.querySelector('.promo-banner') || document.querySelector('.features-section');
+                if (nextSection) {
+                    nextSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+    }
+}
+
+// Initialize enhanced functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize existing functionality
+    new ThemeManager();
+    new ShoppingCart();
+    new SmoothScroll();
+    new Newsletter();
+    new SearchManager();
+
+    // Initialize new enhanced functionality
+    new CountdownTimer();
+    new ProductFilter();
+    new EnhancedNewsletter();
+    new SmoothScrollEnhanced();
+
+    // Add enhanced loading animation
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.8s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+
+    // Enhanced scroll animations with stagger effect
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100); // Stagger animation
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for staggered animation
+    document.querySelectorAll('.product-card, .category-card, .feature-card, .testimonial-card, .guarantee-item').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Add parallax effect to hero section
+    const hero = document.querySelector('.hero-modern');
+    if (hero) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+    }
+});

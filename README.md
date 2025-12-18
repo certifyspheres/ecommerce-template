@@ -10,7 +10,7 @@ A modern, professional ecommerce website template with multiple color themes, li
 
 ## 🌐 Live Demo
 
-**[View Live Demo →](https://ecommerce-theme.certifysphere.com/)**
+**[View Live Demo →](https://stylehub-theme.certifysphere.com/)**
 
 Experience the full functionality of StyleHub with our interactive demo featuring all pages, themes, and ecommerce features.
 
