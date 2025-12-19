@@ -41,6 +41,10 @@
     {
       "source": "/contact",
       "destination": "/contact.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
     }
   ],
   "headers": [
